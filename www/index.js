@@ -1,5 +1,19 @@
 const express = require('express')
+const bodyParser = require('body-parser')
+
 const app = express()
+// app.use(bodyParser.urlencoded({extended:false}))
+
+const parser = bodyParser.urlencoded({extended:false})
+app.post('/getname',parser,(req,res)=>{
+    const name = req.body.name
+    res.send({name})
+})
+
+app.post('/getname02',(req,res)=>{
+    const name = req.body.name
+    res.send({name})
+})
 
 app.get('/',(request, response)=>{
     response.send({
